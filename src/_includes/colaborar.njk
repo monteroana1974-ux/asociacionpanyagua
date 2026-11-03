@@ -1,0 +1,54 @@
+---
+layout: base.njk
+---
+<section class="titular">
+  <div class="envoltura">
+    <p class="antetitulo">{{ antetitulo }}</p>
+    <h1>{{ title }}</h1>
+    <p class="titular__cita">{{ cita }}</p>
+  </div>
+</section>
+<div class="envoltura envoltura--texto prosa">
+  {{ content | safe }}
+</div>
+<div class="envoltura tres formas-pago">
+  <div class="bloque">
+    <h2>Transferencia</h2>
+    <p>Cuenta en {{ banco }}:</p>
+    <p class="iban"><span id="iban">{{ iban }}</span></p>
+    <button class="boton boton--borde boton--peque" data-copiar="iban">Copiar el número de cuenta</button>
+  </div>
+  <div class="bloque">
+    <h2>Bizum</h2>
+    <p>Elige <strong>Hacer donativo</strong> en Bizum e introduce el código de ONG:</p>
+    <p class="iban">{{ bizum }}</p>
+    <p class="pequeno">Solo desde España. <a href="/como-hacer-un-bizum/">Cómo hacerlo paso a paso</a></p>
+  </div>
+  <div class="bloque bloque--oro">
+    <h2>Tarjeta o PayPal</h2>
+    <p>Puedes donar con tarjeta bancaria o con tu cuenta de PayPal.</p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+      <input type="hidden" name="business" value="{{ paypal }}">
+      <input type="hidden" name="cmd" value="_donations">
+      <input type="hidden" name="item_name" value="asociacionpanyagua.org">
+      <input type="hidden" name="currency_code" value="EUR">
+      <input type="hidden" name="return" value="{{ site.url }}/colaborar/">
+      <input type="hidden" name="cancel_return" value="{{ site.url }}/colaborar/">
+      <button class="boton" type="submit">Donar ahora</button>
+    </form>
+  </div>
+</div>
+<div class="envoltura envoltura--texto prosa idiomas">
+  <details>
+    <summary>Comment collaborer avec l’Association Pan y Agua ? (français)</summary>
+    <p><em>Écoutez l'Amour du Christ Jésus qui nous pousse et participez à cette mission (2 Co 5, 14-15).</em></p>
+    <p>Pour mener à bien notre Mission, l'Association a besoin du soutien fondamental de ceux qui se sentent appelés par l'Esprit Saint pour la soutenir. C'est pourquoi nous avons besoin de partenaires qui s'engagent à nous aider périodiquement par un don. Et nous t'appelons au NOM DE JÉSUS pour être l'un d'entre eux.</p>
+    <p>L'association Pan y Agua dispose d'un compte ouvert à la {{ banco }}. Vous pouvez effectuer un virement ou un dépôt sur notre numéro de compte : <strong>{{ iban }}</strong>. Vous pouvez également aider l'association avec une carte bancaire en utilisant le bouton « Donar ahora » ci-dessus.</p>
+  </details>
+  <details>
+    <summary>How can you collaborate with the Pan y Agua Association? (English)</summary>
+    <p><em>Listen to the Love of Christ Jesus that urges us and participate in this mission (2 Cor 5:14-15).</em></p>
+    <p>To carry out our Mission, the Association needs the fundamental support of those people who feel called by the Holy Spirit to sustain it. That's why we need partners who commit to helping us periodically with a donation. And we call you in the NAME OF JESUS to be one of them.</p>
+    <p>The Pan y Agua Association has an account at {{ banco }}. You can make a transfer or deposit to our account number: <strong>{{ iban }}</strong>. You can also help with a bank card using the “Donar ahora” button above.</p>
+  </details>
+</div>

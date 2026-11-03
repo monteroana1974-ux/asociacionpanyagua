@@ -1,0 +1,27 @@
+---
+layout: base.njk
+title: Retiros y peregrinaciones
+description: Calendario de los próximos retiros carismáticos y peregrinaciones de la Asociación Pan y Agua.
+permalink: /retiros-y-peregrinaciones/
+---
+<section class="titular">
+  <div class="envoltura">
+    <p class="antetitulo">Anuncios</p>
+    <h1>Retiros y peregrinaciones</h1>
+    <p class="titular__cita">Calendario de los próximos retiros de la Asociación Pan y Agua.</p>
+  </div>
+</section>
+<div class="envoltura tres">
+  {% for a in collections.anuncios %}
+  <a class="bloque bloque--anuncio" href="{{ a.url }}">
+    {% if a.data.image %}<img src="{{ a.data.image }}" alt="" loading="lazy">{% endif %}
+    <p class="charla__fecha">{{ a.date | fecha }}</p>
+    <h2>{{ a.data.title }}</h2>
+    {% if a.data.resumen %}<p>{{ a.data.resumen }}</p>{% endif %}
+    <span class="mas">Leer más →</span>
+  </a>
+  {% endfor %}
+</div>
+<div class="envoltura envoltura--texto prosa">
+  <p>Información: <a href="mailto:{{ site.email }}">{{ site.email }}</a> · Para apuntarse, mensaje de WhatsApp al <a href="https://wa.me/{{ site.whatsapp | replace('+','') }}">{{ site.whatsapp }}</a> (Padre Jeremie).</p>
+</div>

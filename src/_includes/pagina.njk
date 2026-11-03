@@ -1,0 +1,13 @@
+---
+layout: base.njk
+---
+<section class="titular">
+  <div class="envoltura">
+    {% if antetitulo %}<p class="antetitulo">{{ antetitulo }}</p>{% endif %}
+    <h1>{{ title }}</h1>
+    {% if cita %}<p class="titular__cita">{{ cita }}</p>{% endif %}
+  </div>
+</section>
+<div class="envoltura envoltura--texto prosa {{ clase }}">
+{{ content | safe }}
+</div>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if title and page.url != "/" %}{{ title | textoPlano }} · {% endif %}{{ site.nombre }}</title>
+<meta name="description" content="{{ (description or site.descripcion) | textoPlano }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<meta property="og:title" content="{{ (title or site.nombre) | textoPlano }}">
+<meta property="og:description" content="{{ (description or site.descripcion) | textoPlano }}">
+<meta property="og:image" content="{{ ogimage or (site.url + '/img/logo-jesus-es-senor.png') }}">
+<link rel="icon" href="/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/estilo.css">
+<script>/* Invitaciones y recuperación de contraseña del panel */ if (/(invite|recovery|confirmation|email_change)_token=/.test(location.hash)) location.replace("/admin/" + location.hash);</script>
+</head>
+<body>
+<a class="saltar" href="#contenido">Ir al contenido</a>
+<header class="cabecera">
+  <div class="envoltura cabecera__fila">
+    <a class="marca" href="/">
+      <img src="/img/logo-jesus-es-senor.png" alt="" width="44" height="44">
+      <span><strong>Pan y Agua</strong><small>{{ site.lema }}</small></span>
+    </a>
+    <button class="menu-boton" aria-expanded="false" aria-controls="menu">Menú</button>
+    <nav id="menu" class="menu" aria-label="Principal">
+      {% set enlaces = [["/", "Inicio"], ["/quienes-somos/", "Quiénes somos"], ["/charlas/", "Charlas del P. Jeremie"], ["/ensenanzas/", "Enseñanzas"], ["/retiros-y-peregrinaciones/", "Retiros y peregrinaciones"], ["/colaborar/", "Colaborar"]] %}
+      {% for e in enlaces %}
+        <a href="{{ e[0] }}"{% if page.url == e[0] or (e[0] != "/" and page.url.startsWith(e[0])) %} aria-current="page"{% endif %}>{{ e[1] }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+{{ content | safe }}
+</main>
+
+<footer class="pie">
+  <div class="envoltura pie__rejilla">
+    <div>
+      <p class="pie__titulo">Asociación Pan y Agua</p>
+      <p>Asociación de fieles católicos. Arzobispado de Madrid.</p>
+    </div>
+    <div>
+      <p class="pie__titulo">Contacto</p>
+      <p><a href="mailto:{{ site.email }}">{{ site.email }}</a><br>
+      WhatsApp: <a href="https://wa.me/{{ site.whatsapp | replace('+','') }}">{{ site.whatsapp }}</a></p>
+    </div>
+    <div>
+      <p class="pie__titulo">Síguenos</p>
+      <p><a href="{{ site.facebook }}">Facebook</a> · <a href="{{ site.youtube }}">YouTube</a></p>
+      <p><a class="boton boton--claro" href="/colaborar/">Colaborar</a></p>
+    </div>
+  </div>
+  <p class="envoltura pie__legal">Asociación Pan y Agua · NIF G88136189 · asociacionpanyagua.org</p>
+</footer>
+
+<div class="reproductor" id="reproductor" hidden>
+  <div class="envoltura reproductor__fila">
+    <img id="rp-img" alt="" width="48" height="48">
+    <div class="reproductor__texto"><strong id="rp-titulo"></strong></div>
+    <audio id="rp-audio" controls preload="none"></audio>
+    <button class="reproductor__cerrar" id="rp-cerrar" aria-label="Cerrar reproductor">×</button>
+  </div>
+</div>
+
+<script src="/js/web.js" defer></script>
+
+</body>
+</html>

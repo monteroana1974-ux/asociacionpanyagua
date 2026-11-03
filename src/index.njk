@@ -1,0 +1,60 @@
+---
+layout: base.njk
+title: Inicio
+permalink: /
+---
+{% from "tarjeta.njk" import tarjeta %}
+{% set hoy = collections.charlas[0] %}{% set au = hoy.data.audio | ivoox %}
+<section class="portada">
+  <div class="envoltura portada__rejilla">
+    <div>
+      <p class="antetitulo">Asociación de fieles católicos</p>
+      <h1>Asociación<br>Pan y Agua</h1>
+      <p class="portada__lema">Jesús es Señor</p>
+      <p class="portada__texto">Cada día, las Lecturas del Evangelio y la charla del Padre Jérémie Habyarimana. Retiros carismáticos, peregrinaciones y oración en el Nombre de Jesús.</p>
+      <p class="botones"><a class="boton" href="/charlas/">Escuchar las charlas</a> <a class="boton boton--borde" href="/quienes-somos/">Quiénes somos</a></p>
+    </div>
+    <img class="portada__logo" src="/img/logo-jesus-es-senor.png" alt="Jesús es Señor — Asociación Pan y Agua" width="420" height="420">
+  </div>
+</section>
+
+<section class="seccion">
+  <div class="envoltura">
+    <p class="antetitulo">La charla de hoy</p>
+    <article class="destacada">
+      <img src="{{ hoy.data.image or '/img/logo-jesus-es-senor.png' }}" alt="" width="260" height="260">
+      <div>
+        <p class="charla__fecha">{{ hoy.date | fecha }}</p>
+        <h2><a href="{{ hoy.url }}">{{ hoy.data.title }}</a></h2>
+        {% if au.mp3 %}<audio controls preload="none" src="{{ au.mp3 }}"></audio>{% elif au.embed %}<iframe class="ivoox" src="{{ au.embed }}" title="Reproductor de iVoox" loading="lazy" height="200"></iframe>{% endif %}
+        <div class="prosa">{{ hoy.content | safe }}</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="seccion seccion--suave">
+  <div class="envoltura">
+    <div class="seccion__cabeza"><h2>Charlas recientes</h2><a href="/charlas/">Ver todas →</a></div>
+    <div class="lista-charlas lista-charlas--rejilla">
+      {% for c in collections.charlas | limit(7) %}{% if not loop.first %}{{ tarjeta(c) }}{% endif %}{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="seccion">
+  <div class="envoltura tres">
+    <a class="bloque" href="/retiros-y-peregrinaciones/">
+      <h3>Retiros y peregrinaciones</h3>
+      <p>Retiros carismáticos en Madrid y peregrinaciones marianas. Consulta las próximas fechas.</p>
+    </a>
+    <a class="bloque" href="/ensenanzas/">
+      <h3>Enseñanzas del P. Jeremie</h3>
+      <p>Talleres de carismas, rosario de liberación y sanación, y otras enseñanzas en vídeo.</p>
+    </a>
+    <a class="bloque bloque--oro" href="/colaborar/">
+      <h3>Colabora con la misión</h3>
+      <p>Transferencia, Bizum (código 10120) o tarjeta. Gracias por sostener la evangelización.</p>
+    </a>
+  </div>
+</section>

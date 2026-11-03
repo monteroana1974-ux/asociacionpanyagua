@@ -1,0 +1,30 @@
+---
+layout: base.njk
+---
+<section class="titular">
+  <div class="envoltura">
+    <p class="antetitulo">{{ antetitulo }}</p>
+    <h1>{{ title }}</h1>
+    <p class="titular__cita">{{ cita }}</p>
+  </div>
+</section>
+<div class="envoltura">
+  {% for g in grupos %}
+  <section class="grupo-videos">
+    <h2 class="mes__titulo">{{ g.titulo }}</h2>
+    <div class="videos">
+      {% for v in g.videos %}{% set id = v.youtube | youtubeId %}
+      <article class="video">
+        <a class="video__miniatura" href="{{ v.youtube }}" data-youtube="{{ id }}" aria-label="Ver el vídeo: {{ v.titulo }}">
+          <img src="https://i.ytimg.com/vi/{{ id }}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+          <span class="video__play" aria-hidden="true"></span>
+        </a>
+        <h3>{{ v.titulo }}</h3>
+        {% if v.texto %}<p>{{ v.texto }}</p>{% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endfor %}
+  <div class="envoltura--texto prosa">{{ content | safe }}</div>
+</div>

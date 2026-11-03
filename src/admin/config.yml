@@ -1,0 +1,128 @@
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: "Nueva {{collection}}: {{slug}}"
+    update: "Cambio en {{collection}}: {{slug}}"
+    delete: "Borrado en {{collection}}: {{slug}}"
+
+locale: es
+site_url: https://asociacionpanyagua.org
+display_url: https://asociacionpanyagua.org
+logo_url: /img/logo-jesus-es-senor.png
+media_folder: src/img/subidas
+public_folder: /img/subidas
+
+collections:
+  - name: charlas
+    label: Charlas diarias
+    label_singular: charla
+    description: "Para publicar la charla del día: pulsa «Crear charla», pega el enlace del episodio de iVoox, escribe el título y la descripción, y pulsa «Publicar»."
+    folder: src/charlas
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    sortable_fields: ["date", "title"]
+    summary: "{{date | date('DD/MM/YYYY')}} · {{title}}"
+    view_filters:
+      - { label: "Este año (2026)", field: date, pattern: "2026" }
+    fields:
+      - { label: "Título", name: title, widget: string, hint: "Por ejemplo: 3-11-2026 JESÚS ES SEÑOR PARA GLORIA DE DIOS PADRE" }
+      - { label: "Fecha", name: date, widget: datetime, time_format: false, date_format: "DD/MM/YYYY", format: "YYYY-MM-DD" }
+      - { label: "Enlace del audio en iVoox", name: audio, widget: string, hint: "Copia la dirección de la página del episodio en iVoox (la barra de direcciones del navegador) y pégala aquí. También vale el enlace .mp3." }
+      - { label: "Imagen", name: image, widget: image, required: false, hint: "Opcional. Si no pones imagen, se usará el logo de la Asociación." }
+      - { label: "Descripción", name: body, widget: markdown, buttons: [bold, italic, link], editor_components: [], hint: "Por ejemplo: Martes de la semana XXXI del Tiempo Ordinario. Año par. Las Lecturas del Evangelio y Las Charlas del Padre Jeremie Habyarimana." }
+
+  - name: anuncios
+    label: Retiros y peregrinaciones
+    label_singular: anuncio
+    folder: src/anuncios
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título", name: title, widget: string }
+      - { label: "Fecha de publicación", name: date, widget: datetime, time_format: false, date_format: "DD/MM/YYYY", format: "YYYY-MM-DD" }
+      - { label: "Resumen (aparece en la lista)", name: resumen, widget: string, required: false }
+      - { label: "Imagen principal", name: image, widget: image, required: false }
+      - { label: "Texto", name: body, widget: markdown }
+
+  - name: paginas
+    label: Páginas
+    files:
+      - label: "¿Quiénes somos?"
+        name: quienes
+        file: src/quienes-somos.md
+        fields:
+          - { label: "Título", name: title, widget: string }
+          - { label: "Cita", name: cita, widget: string, required: false }
+          - { label: "Texto", name: body, widget: markdown }
+          - { name: layout, widget: hidden }
+          - { name: permalink, widget: hidden }
+          - { name: clase, widget: hidden }
+          - { name: antetitulo, widget: hidden }
+          - { name: description, widget: hidden }
+      - label: "Colaborar / Donaciones"
+        name: colaborar
+        file: src/colaborar.md
+        fields:
+          - { label: "Título", name: title, widget: string }
+          - { label: "Cita", name: cita, widget: string }
+          - { label: "Número de cuenta (IBAN)", name: iban, widget: string }
+          - { label: "Banco", name: banco, widget: string }
+          - { label: "Código Bizum de ONG", name: bizum, widget: string }
+          - { label: "Correo de la cuenta PayPal que recibe los donativos", name: paypal, widget: string }
+          - { label: "Texto", name: body, widget: markdown }
+          - { name: layout, widget: hidden }
+          - { name: permalink, widget: hidden }
+          - { name: antetitulo, widget: hidden }
+          - { name: description, widget: hidden }
+      - label: "Cómo hacer un Bizum"
+        name: bizum
+        file: src/como-hacer-un-bizum.md
+        fields:
+          - { label: "Título", name: title, widget: string }
+          - { label: "Texto", name: body, widget: markdown }
+          - { name: layout, widget: hidden }
+          - { name: permalink, widget: hidden }
+          - { name: antetitulo, widget: hidden }
+          - { name: cita, widget: hidden }
+      - label: "Enseñanzas (vídeos)"
+        name: ensenanzas
+        file: src/ensenanzas.md
+        fields:
+          - { label: "Título", name: title, widget: string }
+          - { label: "Frase de cabecera", name: cita, widget: string }
+          - label: "Grupos de vídeos"
+            name: grupos
+            widget: list
+            label_singular: grupo
+            fields:
+              - { label: "Título del grupo", name: titulo, widget: string }
+              - label: "Vídeos"
+                name: videos
+                widget: list
+                label_singular: vídeo
+                summary: "{{fields.titulo}}"
+                fields:
+                  - { label: "Título", name: titulo, widget: string }
+                  - { label: "Enlace de YouTube", name: youtube, widget: string }
+                  - { label: "Descripción", name: texto, widget: text, required: false }
+          - { label: "Texto final", name: body, widget: markdown, required: false }
+          - { name: layout, widget: hidden }
+          - { name: permalink, widget: hidden }
+          - { name: antetitulo, widget: hidden }
+
+  - name: ajustes
+    label: Datos de contacto
+    files:
+      - label: "Contacto y redes"
+        name: site
+        file: src/_data/site.json
+        fields:
+          - { label: "Nombre", name: nombre, widget: string }
+          - { label: "Lema", name: lema, widget: string }
+          - { label: "Descripción para buscadores", name: descripcion, widget: text }
+          - { label: "Correo electrónico", name: email, widget: string }
+          - { label: "WhatsApp (con prefijo +34)", name: whatsapp, widget: string }
+          - { label: "Facebook", name: facebook, widget: string }
+          - { label: "YouTube", name: youtube, widget: string }
+          - { name: url, widget: hidden }

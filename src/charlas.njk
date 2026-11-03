@@ -1,0 +1,33 @@
+---
+layout: base.njk
+title: Las Lecturas del Evangelio y Charlas del Padre Jeremie
+description: Archivo de las Lecturas del Evangelio y las charlas diarias del Padre Jérémie Habyarimana, ordenadas por fecha.
+permalink: /charlas/
+---
+{% from "tarjeta.njk" import tarjeta %}
+<section class="titular">
+  <div class="envoltura">
+    <p class="antetitulo">Charlas del Padre Jeremie</p>
+    <h1>Las Lecturas del Evangelio y Charlas del Padre Jeremie</h1>
+    <p class="titular__cita">{{ collections.charlas.length }} charlas, de la más reciente a la más antigua.</p>
+  </div>
+</section>
+<div class="envoltura">
+  <div class="buscador">
+    <label for="buscar">Buscar una charla</label>
+    <input id="buscar" type="search" placeholder="Escribe una palabra: misericordia, Pentecostés, Fátima…" autocomplete="off">
+    <p id="buscar-resultado" class="pequeno" aria-live="polite"></p>
+  </div>
+  {% set meses = collections.charlas | porMes %}
+  <nav class="indice-meses" aria-label="Meses">
+    {% for m in meses %}<a href="#m-{{ m.key }}">{{ m.label }}</a>{% endfor %}
+  </nav>
+  {% for m in meses %}
+  <section class="mes" id="m-{{ m.key }}">
+    <h2 class="mes__titulo">{{ m.label }}</h2>
+    <div class="lista-charlas">
+      {% for c in m.items %}{{ tarjeta(c) }}{% endfor %}
+    </div>
+  </section>
+  {% endfor %}
+</div>

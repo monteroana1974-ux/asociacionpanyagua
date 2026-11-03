@@ -1,0 +1,28 @@
+---
+layout: base.njk
+---
+{%- set todas = collections.charlas -%}
+{%- for c in todas -%}{%- if c.url == page.url -%}{%- set idx = loop.index0 -%}{%- endif -%}{%- endfor -%}
+<section class="titular">
+  <div class="envoltura">
+    <p class="antetitulo"><a href="/charlas/">Las Lecturas del Evangelio y Charlas del Padre Jeremie</a></p>
+    <h1 class="titular--charla">{{ title }}</h1>
+    <p class="titular__cita"><time datetime="{{ page.date | isoDate }}">{{ page.date | fecha }}</time></p>
+  </div>
+</section>
+{% set au = audio | ivoox %}
+<div class="envoltura envoltura--texto">
+  <div class="episodio">
+    <img src="{{ image or '/img/logo-jesus-es-senor.png' }}" alt="" width="220" height="220">
+    <div>
+      {% if au.mp3 %}<audio controls preload="none" src="{{ au.mp3 }}"></audio>{% elif au.embed %}<iframe class="ivoox" src="{{ au.embed }}" title="Reproductor de iVoox" loading="lazy" height="200"></iframe>{% endif %}
+      <div class="prosa">{{ content | safe }}</div>
+      {% if au.mp3 %}<p class="pequeno"><a href="{{ au.mp3 }}" download>Descargar el audio</a></p>{% endif %}
+    </div>
+  </div>
+  <nav class="vecinas" aria-label="Otras charlas">
+    {% if idx < todas.length - 1 %}{% set ant = todas[idx + 1] %}<a href="{{ ant.url }}">← {{ ant.date | fecha }}</a>{% else %}<span></span>{% endif %}
+    <a href="/charlas/">Todas las charlas</a>
+    {% if idx > 0 %}{% set sig = todas[idx - 1] %}<a href="{{ sig.url }}">{{ sig.date | fecha }} →</a>{% else %}<span></span>{% endif %}
+  </nav>
+</div>
