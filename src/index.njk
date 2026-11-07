@@ -4,7 +4,7 @@ title: Inicio
 permalink: /
 ---
 {% from "tarjeta.njk" import tarjeta %}
-{% set hoy = collections.charlas[0] %}{% set au = hoy.data.audio | ivoox %}
+{% set hoy = collections.charlas[0] %}{% set au = hoy.data.audio | ivoox(hoy.date) %}
 <section class="portada">
   <div class="envoltura portada__rejilla">
     <div>
