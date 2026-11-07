@@ -1,4 +1,4 @@
-{% macro tarjeta(c) %}{% set au = c.data.audio | ivoox %}{% set img = c.data.image or "/img/logo-jesus-es-senor.png" %}
+{% macro tarjeta(c) %}{% set au = c.data.audio | ivoox(c.date) %}{% set img = c.data.image or "/img/logo-jesus-es-senor.png" %}
 <article class="charla" data-texto="{{ (c.data.title + ' ' + (c.content | textoPlano)) | lower }}">
   <img class="charla__img" src="{{ img }}" alt="" loading="lazy" width="96" height="96">
   <div class="charla__cuerpo">
