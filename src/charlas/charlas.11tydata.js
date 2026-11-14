@@ -4,6 +4,6 @@ export default {
   layout: "charla.njk",
   eleventyComputed: {
     permalink: (data) =>
-      data.publicado === false ? false : `/charlas/${data.page.filePathStem.split("/").pop()}/`,
+      data.publicado === false ? false : `/charlas/${data.page.inputPath.split("/").pop().replace(/\.md$/, "")}/`,
   },
 };
