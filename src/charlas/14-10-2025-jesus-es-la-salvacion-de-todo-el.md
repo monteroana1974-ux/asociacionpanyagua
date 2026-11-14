@@ -1,5 +1,6 @@
 ---
 title: "14-10-2025 JESÚS ES LA SALVACIÓN DE TODO EL QUE CREE"
+color: verde
 date: 2025-10-15
 audio: "https://www.ivoox.com/14-10-2025-jesus-es-la-salvacion-de-todo-el_mf_160771717_feed_1.mp3"
 image: "https://static-1.ivoox.com/canales/8/8/6/e/886e798959dda632bb86c4521dde0277_XXL.jpg"

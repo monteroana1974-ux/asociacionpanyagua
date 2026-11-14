@@ -1,5 +1,6 @@
 ---
 title: "24-10-2025 GRACIAS A DIOS POR JESUCRISTO NUESTRO SEÑOR"
+color: verde
 date: 2025-10-24
 audio: "https://www.ivoox.com/24-10-2025-gracias-a-dios-por-jesucristo-nuestro-senor_mf_161238816_feed_1.mp3"
 image: "https://static-1.ivoox.com/canales/6/0/b/c/60bc324a5b6c1cde16927b7aa2f72ad4_XXL.jpg"

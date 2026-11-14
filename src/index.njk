@@ -21,8 +21,8 @@ permalink: /
 <section class="seccion">
   <div class="envoltura">
     <p class="antetitulo">La charla de hoy</p>
-    <article class="destacada">
-      <img src="{{ hoy.data.image or '/img/logo-jesus-es-senor.png' }}" alt="" width="260" height="260">
+    <article class="destacada lit-{{ hoy.data.color or 'blanco' }}">
+      <img src="{{ hoy.data.image or '/img/logo-jesus-es-senor.png' }}" alt="" width="340" height="340">
       <div>
         <p class="charla__fecha">{{ hoy.date | fecha }}</p>
         <h2><a href="{{ hoy.url }}">{{ hoy.data.title }}</a></h2>

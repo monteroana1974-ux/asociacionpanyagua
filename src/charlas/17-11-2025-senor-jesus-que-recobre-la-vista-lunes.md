@@ -1,5 +1,6 @@
 ---
 title: "17-11-2025 SEÑOR JESÚS, QUE RECOBRE LA VISTA. LUNES DE LA SEMANA XXXIII DEL TIEMPO ORDINARIO. AÑO IMPAR"
+color: verde
 date: 2025-11-17
 audio: "https://www.ivoox.com/17-11-2025-senor-jesus-que-recobre-la-vista-lunes_mf_162755111_feed_1.mp3"
 image: "https://static-1.ivoox.com/canales/f/c/b/1/fcb1b8c048728586fcf7ebc1664ff924_XXL.jpg"

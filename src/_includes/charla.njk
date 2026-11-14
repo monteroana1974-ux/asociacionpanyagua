@@ -2,8 +2,8 @@
 layout: base.njk
 ---
 {%- set todas = collections.charlas -%}
-{%- for c in todas -%}{%- if c.url == page.url -%}{%- set idx = loop.index0 -%}{%- endif -%}{%- endfor -%}
-<section class="titular">
+{%- set idx = todas | indiceDe(page.url) -%}
+<section class="titular cabecera-lit lit-{{ color or 'blanco' }}">
   <div class="envoltura">
     <p class="antetitulo"><a href="/charlas/">Las Lecturas del Evangelio y Charlas del Padre Jeremie</a></p>
     <h1 class="titular--charla">{{ title }}</h1>
@@ -11,9 +11,9 @@ layout: base.njk
   </div>
 </section>
 {% set au = audio | ivoox %}
-<div class="envoltura envoltura--texto">
+<div class="envoltura envoltura--charla lit-{{ color or 'blanco' }}">
   <div class="episodio">
-    <img src="{{ image or '/img/logo-jesus-es-senor.png' }}" alt="" width="220" height="220">
+    <img src="{{ image or '/img/logo-jesus-es-senor.png' }}" alt="" width="340" height="340">
     <div>
       {% if au.mp3 %}<audio controls preload="none" src="{{ au.mp3 }}"></audio>{% elif au.embed %}<iframe class="ivoox" src="{{ au.embed }}" title="Reproductor de iVoox" loading="lazy" height="200"></iframe>{% endif %}
       <div class="prosa">{{ content | safe }}</div>

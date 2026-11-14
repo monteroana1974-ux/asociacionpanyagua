@@ -1,5 +1,6 @@
 ---
 title: "8-09-2026 LA NATIVIDAD DE LA VIRGEN MARÍA, LA MADRE DE JESÚS, ES LA ESPERANZA DE LA HUMANIDAD CAÍDA"
+color: blanco
 date: 2026-09-08
 audio: "https://www.ivoox.com/8-09-2026-la-natividad-de-la-virgen-maria-la_mf_180176504_feed_1.mp3"
 image: "https://static-2.ivoox.com/canales/7/b/5/d/7b5d90a77d0fbbe0d7cba37ebd702fb5_XXL.jpg"

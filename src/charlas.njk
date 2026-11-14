@@ -25,7 +25,7 @@ permalink: /charlas/
   {% for m in meses %}
   <section class="mes" id="m-{{ m.key }}">
     <h2 class="mes__titulo">{{ m.label }}</h2>
-    <div class="lista-charlas">
+    <div class="lista-charlas lista-charlas--rejilla">
       {% for c in m.items %}{{ tarjeta(c) }}{% endfor %}
     </div>
   </section>

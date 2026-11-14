@@ -31,6 +31,17 @@ collections:
     fields:
       - { label: "Título", name: title, widget: string, hint: "Por ejemplo: 3-11-2026 JESÚS ES SEÑOR PARA GLORIA DE DIOS PADRE" }
       - { label: "Fecha", name: date, widget: datetime, time_format: false, date_format: "DD/MM/YYYY", format: "YYYY-MM-DD" }
+      - label: "Color litúrgico"
+        name: color
+        widget: select
+        required: true
+        hint: "El color del día: la charla se verá con ese color en la web."
+        options:
+          - { label: "Verde", value: verde }
+          - { label: "Morado", value: morado }
+          - { label: "Blanco", value: blanco }
+          - { label: "Rojo", value: rojo }
+          - { label: "Rosa", value: rosa }
       - { label: "Enlace del audio en iVoox", name: audio, widget: string, hint: "Copia la dirección de la página del episodio en iVoox (la barra de direcciones del navegador) y pégala aquí. También vale el enlace .mp3." }
       - { label: "Imagen", name: image, widget: image, required: false, hint: "Opcional. Si no pones imagen, se usará el logo de la Asociación." }
       - { label: "Descripción", name: body, widget: markdown, buttons: [bold, italic, link], editor_components: [], hint: "Por ejemplo: Martes de la semana XXXI del Tiempo Ordinario. Año par. Las Lecturas del Evangelio y Las Charlas del Padre Jeremie Habyarimana." }

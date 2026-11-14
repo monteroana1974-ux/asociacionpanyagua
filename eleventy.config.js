@@ -49,6 +49,7 @@ export default function (cfg) {
     const id = u.match(/(\d{6,})/);
     return { mp3: "", embed: id ? `https://www.ivoox.com/player_ej_${id[1]}_6_1.html` : "" };
   });
+  cfg.addFilter("indiceDe", (items, url) => items.findIndex((it) => it.url === url));
   cfg.addFilter("json", (v) => JSON.stringify(v));
   cfg.addFilter("textoPlano", (s) => String(s || "").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim());
 

@@ -1,6 +1,6 @@
 :root {
-  --fondo: #fbf8f2;
-  --fondo-suave: #f2ebdd;
+  --fondo: #ffffff;
+  --fondo-suave: #ffffff;
   --tarjeta: #ffffff;
   --texto: #2b2722;
   --texto-suave: #6b6257;
@@ -13,13 +13,6 @@
   --radio: 14px;
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --fondo: #14171c; --fondo-suave: #1b2028; --tarjeta: #1f252e; --texto: #ece6da; --texto-suave: #a9a194;
-    --azul: #9fc0e6; --azul-claro: #b9d2f0; --oro: #e0b45c; --oro-claro: #3a2f18; --borde: #2e3540;
-    --sombra: 0 1px 2px rgba(0,0,0,.4);
-  }
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -66,7 +59,7 @@ h3 { font-size: 1.35rem; }
 .botones { display: flex; gap: 10px; flex-wrap: wrap; }
 
 /* Portada */
-.portada { background: linear-gradient(180deg, var(--fondo-suave), var(--fondo)); padding: 56px 0 40px; }
+.portada { background: var(--fondo); padding: 56px 0 40px; border-bottom: 1px solid var(--borde); }
 .portada__rejilla { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
 .portada__lema { font-family: var(--serif); font-size: 1.8rem; color: var(--oro); margin: -.2em 0 .5em; font-style: italic; }
 .portada__texto { font-size: 1.15rem; max-width: 34em; }
@@ -74,7 +67,7 @@ h3 { font-size: 1.35rem; }
 @media (max-width: 760px) { .portada__rejilla { grid-template-columns: 1fr; } .portada__logo { max-width: 220px; grid-row: 1; } }
 
 .seccion { padding: 48px 0; }
-.seccion--suave { background: var(--fondo-suave); }
+.seccion--suave { background: var(--fondo); border-top: 1px solid var(--borde); }
 .seccion__cabeza { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 18px; }
 
 .destacada { display: grid; grid-template-columns: 260px 1fr; gap: 28px; background: var(--tarjeta); border-radius: var(--radio); padding: 24px; box-shadow: var(--sombra); }
@@ -104,7 +97,7 @@ h3 { font-size: 1.35rem; }
 .mes { margin: 32px 0; scroll-margin-top: 80px; }
 .mes__titulo { border-bottom: 2px solid var(--oro-claro); padding-bottom: 6px; }
 
-.titular { background: var(--fondo-suave); padding: 44px 0 34px; margin-bottom: 30px; }
+.titular { background: var(--fondo); padding: 44px 0 30px; margin-bottom: 30px; border-bottom: 1px solid var(--borde); }
 .titular h1 { max-width: 22em; }
 .titular--charla { font-size: clamp(1.8rem, 4vw, 2.6rem); }
 .titular__cita { font-family: var(--serif); font-style: italic; font-size: 1.3rem; color: var(--texto-suave); margin: 0; max-width: 40em; }
@@ -164,3 +157,38 @@ a.bloque:hover { border-color: var(--oro); }
 @media (max-width: 640px) { .reproductor__fila { flex-wrap: wrap; } .reproductor audio { flex-basis: 100%; } }
 [hidden] { display: none !important; }
 .ivoox { width: 100%; border: 0; border-radius: 10px; margin-bottom: 12px; }
+
+/* ===== Colores litúrgicos de cada charla ===== */
+.lit-verde  { --lit: #006b00; --lit-texto: #ffffff; --lit-borde: #006b00; }
+.lit-morado { --lit: #740278; --lit-texto: #ffffff; --lit-borde: #740278; }
+.lit-rojo   { --lit: #b80000; --lit-texto: #ffffff; --lit-borde: #b80000; }
+.lit-rosa   { --lit: #c4568f; --lit-texto: #ffffff; --lit-borde: #c4568f; }
+.lit-blanco { --lit: #ffffff; --lit-texto: #2b2722; --lit-borde: #c9a24a; }
+
+/* Tarjetas de charla: fondo del color litúrgico e imagen grande */
+.charla { background: var(--lit, var(--tarjeta)); color: var(--lit-texto, var(--texto)); border: 2px solid var(--lit-borde, var(--borde)); padding: 14px; gap: 20px; align-items: center; }
+.charla__img { width: 170px; height: 170px; border-radius: 10px; }
+.charla__fecha, .charla__titulo, .charla__titulo a { color: inherit; }
+.charla__fecha { opacity: .85; }
+.charla__titulo { font-size: 1.12rem; }
+.lit-verde .boton-escuchar, .lit-morado .boton-escuchar, .lit-rojo .boton-escuchar, .lit-rosa .boton-escuchar { background: rgba(255,255,255,.94); color: #222; }
+.lista-charlas--rejilla { grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); }
+@media (max-width: 600px) {
+  .lista-charlas--rejilla { grid-template-columns: 1fr; }
+  .charla { flex-direction: column; align-items: flex-start; }
+  .charla__img { width: 100%; height: auto; aspect-ratio: 1; max-width: 320px; }
+}
+
+/* Charla de hoy (portada) */
+.destacada { background: var(--lit, var(--tarjeta)); color: var(--lit-texto, var(--texto)); border: 2px solid var(--lit-borde, var(--borde)); grid-template-columns: 340px 1fr; }
+.destacada h2, .destacada .charla__fecha, .destacada .prosa { color: inherit; }
+@media (max-width: 760px) { .destacada { grid-template-columns: 1fr; } .destacada img { max-width: 100%; } }
+
+/* Página de cada charla */
+.cabecera-lit { background: var(--lit, var(--fondo)); color: var(--lit-texto, var(--texto)); border-bottom: 1px solid var(--lit-borde, var(--borde)); }
+.cabecera-lit h1, .cabecera-lit .antetitulo, .cabecera-lit .titular__cita { color: inherit; }
+.cabecera-lit .titular__cita { opacity: .9; }
+.episodio { grid-template-columns: 340px 1fr; }
+.episodio img { width: 100%; border: 3px solid var(--lit-borde, var(--borde)); }
+@media (max-width: 760px) { .episodio { grid-template-columns: 1fr; } .episodio img { max-width: 360px; } }
+.envoltura--charla { max-width: 1000px; }

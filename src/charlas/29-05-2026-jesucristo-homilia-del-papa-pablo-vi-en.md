@@ -1,5 +1,6 @@
 ---
 title: "29-05-2026 JESUCRISTO. HOMILÍA DEL PAPA PABLO VI EN MANILA 29 DE NOVIEMBRE DE 1970. BASILICA DE Nª SRA DE LA CONCEPCIÓN"
+color: blanco
 date: 2026-05-29
 audio: "https://www.ivoox.com/29-05-2026-jesucristo-homilia-del-papa-pablo-vi-en_mf_174591558_feed_1.mp3"
 image: "https://static-1.ivoox.com/canales/f/1/9/b/f19b4eadc30040e366adcb44a2a49411_XXL.jpg"

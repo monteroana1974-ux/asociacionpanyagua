@@ -1,5 +1,6 @@
 ---
 title: "25-10-2026 SEÑOR JESÚS, DANOS UN CORAZÓN COMPASIVO"
+color: verde
 date: 2026-10-25
 audio: "https://www.ivoox.com/25-10-2026-senor-jesus-danos-un-corazon-compasivo_mf_182740623_feed_1.mp3"
 image: "https://static-1.ivoox.com/canales/c/c/5/b/cc5bf7f9693d894afc8c6b69a387e17c_XXL.jpg"

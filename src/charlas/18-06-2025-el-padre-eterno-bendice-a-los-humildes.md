@@ -1,5 +1,6 @@
 ---
 title: "18-06-2025 EL PADRE ETERNO BENDICE A LOS HUMILDES"
+color: verde
 date: 2025-06-19
 audio: "https://www.ivoox.com/18-06-2025-el-padre-eterno-bendice-a-los-humildes_mf_150576511_feed_1.mp3"
 image: "https://static-2.ivoox.com/canales/3/d/0/5/3d05f85d821f9abb25c19d95e5191577_XXL.jpg"
