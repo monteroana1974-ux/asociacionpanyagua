@@ -2,7 +2,7 @@
 title: "14 nov · Retiro carismático de sanación en el Nombre de Jesús Señor"
 date: 2026-11-10
 resumen: "Sábado 14 de noviembre de 2026. Tema: Ministerio de la Alegría en el Espíritu Santo. Iglesia San Juan de la Cruz, Madrid."
-image: /img/iglesia-san-juan-de-la-cruz.jpg
+image: /img/retiro-ministerio-de-la-alegria.jpg
 ---
 En el nombre de Jesús, te invitamos a participar en el próximo **Retiro Carismático** este **sábado 14 de noviembre de 2026**. Invita a tus familiares y amigos a disfrutar de la Misericordia sanadora del poder del nombre de Jesús.
 
