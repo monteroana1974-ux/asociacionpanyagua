@@ -4,7 +4,7 @@ title: Las Lecturas del Evangelio y Charlas del Padre Jeremie
 description: Archivo de las Lecturas del Evangelio y las charlas diarias del Padre Jérémie Habyarimana, ordenadas por fecha.
 permalink: /charlas/
 ---
-{% from "tarjeta.njk" import tarjeta %}
+{% from "banda.njk" import banda %}
 <section class="titular">
   <div class="envoltura">
     <p class="antetitulo">Charlas del Padre Jeremie</p>
@@ -22,12 +22,10 @@ permalink: /charlas/
   <nav class="indice-meses" aria-label="Meses">
     {% for m in meses %}<a href="#m-{{ m.key }}">{{ m.label }}</a>{% endfor %}
   </nav>
-  {% for m in meses %}
-  <section class="mes" id="m-{{ m.key }}">
-    <h2 class="mes__titulo">{{ m.label }}</h2>
-    <div class="lista-charlas lista-charlas--rejilla">
-      {% for c in m.items %}{{ tarjeta(c) }}{% endfor %}
-    </div>
-  </section>
-  {% endfor %}
 </div>
+{% for m in meses %}
+<section class="mes" id="m-{{ m.key }}">
+  <div class="envoltura"><h2 class="mes__titulo">{{ m.label }}</h2></div>
+  {% for c in m.items %}{{ banda(c) }}{% endfor %}
+</section>
+{% endfor %}

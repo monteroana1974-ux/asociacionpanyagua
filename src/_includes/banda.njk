@@ -1,0 +1,19 @@
+{% macro banda(c) %}{% set au = c.data.audio | ivoox %}{% set img = c.data.image or "/img/logo-jesus-es-senor.png" %}
+<article class="banda lit-{{ c.data.color or 'blanco' }}" data-texto="{{ (c.data.title + ' ' + (c.content | textoPlano)) | lower }}">
+  <div class="envoltura">
+    <p class="banda__seccion"><span>Las Lecturas del Evangelio y Charlas del Padre Jeremie</span></p>
+    <div class="banda__fila">
+      <div class="banda__izq">
+        <a href="{{ c.url }}"><img class="banda__img" src="{{ img }}" alt="" loading="lazy" width="260" height="260"></a>
+        <div class="banda__desc">{{ c.content | safe }}</div>
+      </div>
+      <div class="banda__tarjeta">
+        <p class="banda__etiqueta">{{ c.data.title }}</p>
+        <h3 class="banda__titulo"><a href="{{ c.url }}">{{ c.data.title }}</a></h3>
+        <p class="banda__fecha">Publicado <time datetime="{{ c.date | isoDate }}">{{ c.date | fecha }}</time></p>
+        {% if au.mp3 %}<audio controls preload="none" src="{{ au.mp3 }}"></audio>{% elif au.embed %}<iframe class="ivoox" src="{{ au.embed }}" title="Reproductor de iVoox" loading="lazy" height="200"></iframe>{% endif %}
+      </div>
+    </div>
+  </div>
+</article>
+{% endmacro %}

@@ -23,13 +23,13 @@
   // Buscador de charlas
   var q = document.getElementById("buscar");
   if (q) {
-    var items = document.querySelectorAll(".mes .charla"), res = document.getElementById("buscar-resultado");
+    var items = document.querySelectorAll(".mes [data-texto]"), res = document.getElementById("buscar-resultado");
     var norm = function (s) { return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); };
     items.forEach(function (it) { it._t = norm(it.dataset.texto); });
     q.addEventListener("input", function () {
       var t = norm(q.value.trim()), n = 0;
       items.forEach(function (it) { var ok = !t || it._t.indexOf(t) > -1; it.hidden = !ok; if (ok) n++; });
-      document.querySelectorAll(".mes").forEach(function (m) { m.hidden = !m.querySelector(".charla:not([hidden])"); });
+      document.querySelectorAll(".mes").forEach(function (m) { m.hidden = !m.querySelector("[data-texto]:not([hidden])"); });
       document.querySelector(".indice-meses").hidden = !!t;
       res.textContent = t ? (n === 1 ? "1 charla encontrada" : n + " charlas encontradas") : "";
     });
