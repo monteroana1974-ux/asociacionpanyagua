@@ -76,7 +76,7 @@ También hemos publicado la transcripción de algunas charlas del Padre Jérémi
 - Fortalecer el espíritu misionero en el Nombre de JESÚS.
 - Formar un grupo de intercesión capaz de atender e interceder en el Nombre de JESÚS.
 - Fortalecer el grupo de música y difundir canciones ungidas de invocación al Espíritu Santo y de alabanza al Padre, Hijo y Espíritu Santo.
-- Proyecto de Casa de Cuidado de las Almas (lugar de retiros y de encuentro con Jesús el Médico que atiende, acompaña y cuida a las almas débiles). Este proyecto ya está disponible online: [cuidadocatolicodelasalmas.com](https://cuidadocatolicodelasalmas.com/)
+- Proyecto de Casa de Cuidado de las Almas (lugar de retiros y de encuentro con Jesús el Médico que atiende, acompaña y cuida a las almas débiles).
 - Apoyar a grupos carismáticos o comunidades carismáticas organizando un taller del Espíritu Santo para ellos, dando enseñanzas o ayudando en el Espíritu Santo según el carisma del grupo o de la comunidad.
 - Formar un grupo carismático para los jóvenes.
 - Acompañar a los matrimonios.
