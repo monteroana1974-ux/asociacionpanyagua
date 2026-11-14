@@ -1,9 +1,11 @@
-import { completarCharlas } from "./scripts/completar-ivoox.mjs";
+import { completarCharlas, quitarFechasVacias } from "./scripts/completar-ivoox.mjs";
+import markdownIt from "markdown-it";
+const md = markdownIt({ html: true, linkify: true, breaks: true });
 const MESES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
 
 export default function (cfg) {
   // Antes de compilar, las charlas nuevas (solo con el feed de iVoox) se completan con los datos del feed
-  cfg.on("eleventy.before", async () => { await completarCharlas(); });
+  cfg.on("eleventy.before", async () => { quitarFechasVacias("src/anuncios"); await completarCharlas(); });
 
   cfg.addPassthroughCopy({ "src/img": "img" });
   cfg.addPassthroughCopy({ "src/css": "css" });
@@ -54,6 +56,8 @@ export default function (cfg) {
     return { mp3: "", embed: id ? `https://www.ivoox.com/player_ej_${id[1]}_6_1.html` : "" };
   });
   cfg.addFilter("indiceDe", (items, url) => items.findIndex((it) => it.url === url));
+  // Texto con formato (negritas, enlaces…) de los bloques de los anuncios
+  cfg.addFilter("md", (t) => (t ? md.render(String(t)) : ""));
   cfg.addFilter("json", (v) => JSON.stringify(v));
   cfg.addFilter("textoPlano", (s) => String(s || "").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim());
 

@@ -58,10 +58,43 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Título", name: title, widget: string }
-      - { label: "Resumen (aparece en la lista)", name: resumen, widget: string, required: false }
-      - { label: "Imagen principal", name: image, widget: image, required: false }
-      - { label: "Texto", name: body, widget: markdown }
+      - { label: "1. Título", name: title, widget: string }
+      - { label: "2. Imagen principal", name: image, widget: image, required: false }
+      - label: "3. Texto resumen"
+        name: resumen
+        widget: markdown
+        required: false
+        buttons: [bold, italic, link]
+        editor_components: []
+        hint: "Sale debajo de la imagen principal y en la lista de retiros. Para poner un enlace: selecciona el texto y pulsa el botón de enlace."
+      - label: "Bloques 02 a 10"
+        name: bloques
+        widget: list
+        required: false
+        max: 9
+        label_singular: bloque
+        add_to_top: false
+        summary: "{{fields.cabecera | default('Bloque sin cabecera')}}"
+        hint: "Pulsa «Añadir bloque» para cada parte del anuncio (hasta 9). Todo es opcional: lo que dejes vacío no sale."
+        fields:
+          - { label: "Imagen", name: imagen, widget: image, required: false }
+          - label: "Posición de la imagen"
+            name: posicion
+            widget: select
+            required: false
+            default: centro
+            options:
+              - { label: "A la derecha (tamaño medio)", value: derecha }
+              - { label: "A la izquierda (tamaño medio)", value: izquierda }
+              - { label: "Al centro (tamaño doble)", value: centro }
+          - { label: "Cabecera", name: cabecera, widget: string, required: false }
+          - label: "Texto"
+            name: texto
+            widget: markdown
+            required: false
+            hint: "Para poner un enlace (por ejemplo, la ubicación en Google Maps): selecciona el texto y pulsa el botón de enlace."
+      - { name: date, widget: hidden, required: false }
+      - { name: body, widget: hidden, required: false }
 
   - name: paginas
     label: Páginas

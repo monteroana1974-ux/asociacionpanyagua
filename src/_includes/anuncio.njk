@@ -7,8 +7,16 @@ layout: base.njk
     <h1>{{ title }}</h1>
   </div>
 </section>
-<div class="envoltura envoltura--texto prosa">
+<div class="envoltura envoltura--texto prosa anuncio">
   {% if image %}<img class="ancha" src="{{ image }}" alt="">{% endif %}
+  {% if resumen %}<div class="anuncio__resumen">{{ resumen | md | safe }}</div>{% endif %}
+  {% for b in bloques %}{% if b.imagen or b.cabecera or b.texto %}
+  <section class="bloque-anuncio">
+    {% if b.imagen %}<img class="bloque-anuncio__img bloque-anuncio__img--{{ b.posicion or 'centro' }}" src="{{ b.imagen }}" alt="">{% endif %}
+    {% if b.cabecera %}<h2>{{ b.cabecera }}</h2>{% endif %}
+    {% if b.texto %}{{ b.texto | md | safe }}{% endif %}
+  </section>
+  {% endif %}{% endfor %}
   {{ content | safe }}
-  <p><a href="/retiros-y-peregrinaciones/">← Volver a retiros y peregrinaciones</a></p>
+  <p class="anuncio__volver"><a href="/retiros-y-peregrinaciones/">← Volver a retiros y peregrinaciones</a></p>
 </div>

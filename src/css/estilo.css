@@ -262,3 +262,18 @@ main:has(.cuerpo-lit) + .pie { margin-top: 0; }
 /* Tablas: el contenido de cada celda arriba (horarios) */
 .prosa td, .prosa th { vertical-align: top; text-align: left; }
 .prosa td:first-child { white-space: nowrap; padding-right: 10px; }
+
+/* ===== Anuncios por bloques: imagen a la derecha, a la izquierda o al centro ===== */
+.anuncio__resumen { font-size: 1.12rem; }
+.bloque-anuncio { display: flow-root; margin: 28px 0; padding-top: 4px; }
+.bloque-anuncio + .bloque-anuncio { border-top: 1px solid var(--borde); padding-top: 24px; }
+.bloque-anuncio h2 { margin-top: 0; }
+.prosa .bloque-anuncio__img { display: block; border-radius: 10px; height: auto; }
+.prosa .bloque-anuncio__img--derecha { float: right; width: 38%; max-width: 300px; margin: 0 0 16px 24px; }
+.prosa .bloque-anuncio__img--izquierda { float: left; width: 38%; max-width: 300px; margin: 0 24px 16px 0; }
+.prosa .bloque-anuncio__img--centro { width: 76%; max-width: 600px; margin: 0 auto 18px; }
+@media (max-width: 560px) {
+  .prosa .bloque-anuncio__img--derecha, .prosa .bloque-anuncio__img--izquierda { width: 42%; margin-bottom: 10px; }
+  .prosa .bloque-anuncio__img--centro { width: 100%; }
+}
+.bloque__resumen { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }

@@ -35,6 +35,18 @@ const campo = (fm, k) => {
   return m ? m[1].trim().replace(/^["']|["']$/g, "") : "";
 };
 
+// Un "date" vacío (lo puede dejar el panel) rompería la compilación: se quita y la fecha sale del nombre del archivo
+export function quitarFechasVacias(dir) {
+  if (!fs.existsSync(dir)) return;
+  for (const f of fs.readdirSync(dir)) {
+    if (!f.endsWith(".md")) continue;
+    const p = path.join(dir, f);
+    const t = fs.readFileSync(p, "utf8");
+    const n = t.replace(/^(---\n[\s\S]*?)^date:\s*(""|'')?\s*\n/m, "$1");
+    if (n !== t) fs.writeFileSync(p, n);
+  }
+}
+
 export async function completarCharlas(dir = DIR) {
   let cambios = 0;
   for (const f of fs.readdirSync(dir)) {
