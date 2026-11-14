@@ -37,16 +37,51 @@ En el nombre de Jesús, te invitamos a participar en el próximo **Retiro Carism
 
 **Sobre la comida:** el asistente al retiro tendrá la libertad, para comer, de salir a los alrededores, ir a casa o a cualquier restaurante cercano según se haya decidido en cada caso particular. La Asociación no se encarga de la reserva de restaurantes. No hay comedor en la parroquia, así que solo se podrá tomar un bocadillo o algo sencillo en la zona del jardín adyacente.
 
-**Contacto:** 616 925 410 (Raquel) · [asociacionpanyagua@gmail.com](mailto:asociacionpanyagua@gmail.com)
+## Métodos de contacto
 
-## La Asociación Pan y Agua en los medios
+<div class="contacto-fila contacto-fila--icono-izq">
+  <a href="tel:+34616925410"><img src="/img/icono-telefono.png" alt="Teléfono" width="180" height="180"></a>
+  <p><strong><a href="tel:+34616925410">616 925 410</a> (Raquel)</strong></p>
+</div>
 
-- YouTube: [Canal 1](https://youtube.com/@comunidadpanyagua) · [Canal 2](https://youtube.com/@padrejeremiehabyarimana)
-- WhatsApp: si quieres escuchar las charlas diarias, [únete a este grupo silencioso](https://chat.whatsapp.com/DxaXEaZmawHLQgABlIDgik).
+## Asociación Pan y Agua en los medios
+
+<div class="contacto-fila">
+  <div>
+    <p><strong><a href="/">Visita nuestra web</a></strong></p>
+    <p><strong>Asociación Pan y Agua en YouTube:</strong></p>
+    <p><strong><a href="https://youtube.com/@comunidadpanyagua">Canal 1</a></strong><br><strong><a href="https://youtube.com/@padrejeremiehabyarimana">Canal 2</a></strong></p>
+  </div>
+  <a href="https://youtube.com/@comunidadpanyagua"><img src="/img/icono-youtube.jpg" alt="YouTube" width="200" height="180"></a>
+</div>
+
+<div class="contacto-fila">
+  <div>
+    <p><strong>Asociación Pan y Agua en WhatsApp</strong></p>
+    <p><strong><a href="https://chat.whatsapp.com/DxaXEaZmawHLQgABlIDgik">Si quieres escuchar las Charlas diarias únete a este grupo silencioso</a></strong></p>
+  </div>
+  <a href="https://chat.whatsapp.com/DxaXEaZmawHLQgABlIDgik"><img src="/img/icono-whatsapp.jpg" alt="WhatsApp" width="200" height="183"></a>
+</div>
+
+<div class="contacto-fila">
+  <div>
+    <p><strong>Esta es nuestra dirección de correo electrónico. Escríbenos si lo necesitas.</strong></p>
+    <p><strong><a href="mailto:asociacionpanyagua@gmail.com">asociacionpanyagua@gmail.com</a></strong></p>
+  </div>
+  <a href="mailto:asociacionpanyagua@gmail.com"><img src="/img/icono-gmail.jpg" alt="Gmail" width="180" height="180"></a>
+</div>
 
 ## Colaborar con la Asociación Pan y Agua
 
-Si quieres apoyar la Misión del Anuncio del Nombre de Jesús y de Sanación de las almas por medio del proyecto del Ministerio de la Alegría y de la Casa de Cuidado de las Almas, puedes usar la cuenta de la Asociación Pan y Agua en la Caja Rural de Jaén: **ES45 3067 0146 9531 9167 5028**. También puedes colaborar con tarjeta o con Bizum desde la página [Colaborar](/colaborar/).
+Si quieres apoyar la Misión del Anuncio del Nombre de Jesús y de Sanación de las almas por medio del proyecto del Ministerio de la Alegría y de la Casa de Cuidado de las Almas, puedes usar esta cuenta de la Asociación Pan y Agua en la Caja Rural de Jaén: **ES45 3067 0146 9531 9167 5028**.
+
+Puedes también usar el monedero virtual de la Asociación Pan y Agua pulsando aquí:
+
+<p><a class="boton" href="/colaborar/">Colaborar</a></p>
+
+Los residentes en España pueden utilizar Bizum para colaborar con la Asociación siguiendo estas instrucciones:
+
+<p><a class="boton" href="/como-hacer-un-bizum/">Cómo hacer un Bizum</a></p>
 
 ![](/img/virgen-del-carmen.jpg)
 

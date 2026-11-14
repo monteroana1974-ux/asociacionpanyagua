@@ -240,3 +240,21 @@ main:has(.cuerpo-lit) + .pie { margin-top: 0; }
   .banda__img { width: 100%; height: auto; aspect-ratio: 1; max-width: 360px; }
   .banda__seccion { font-size: 1.1rem; }
 }
+
+/* ===== Botones como en la web anterior: blancos y cian al pasar el cursor ===== */
+.boton, .boton--borde, .boton--claro, .pie .boton {
+  background: #ffffff; color: #1f828c; border: 1px solid #1f828c; border-radius: 48px;
+  padding: 10px 40px; font: 700 1rem var(--sans); text-transform: uppercase; letter-spacing: .06em;
+  transition: background-color .2s, color .2s, border-color .2s; filter: none;
+}
+.boton:hover, .boton:focus-visible, .boton--borde:hover, .boton--claro:hover, .pie .boton:hover {
+  background: #38e4f6; color: #000000; border-color: #2fc6d6; filter: none;
+}
+.boton--peque { padding: 7px 22px; font-size: .85rem; }
+
+/* Filas de contacto con icono (anuncios) */
+.contacto-fila { display: grid; grid-template-columns: 1fr 200px; gap: 24px; align-items: center; padding: 18px 0; border-bottom: 1px solid var(--borde); }
+.contacto-fila img { width: 100%; max-width: 200px; height: auto; border-radius: 0; display: block; }
+.contacto-fila p { margin: .4em 0; }
+.contacto-fila--icono-izq { grid-template-columns: 180px 1fr; }
+@media (max-width: 560px) { .contacto-fila { grid-template-columns: 1fr 120px; } .contacto-fila--icono-izq { grid-template-columns: 120px 1fr; } }
