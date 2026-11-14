@@ -258,3 +258,7 @@ main:has(.cuerpo-lit) + .pie { margin-top: 0; }
 .contacto-fila p { margin: .4em 0; }
 .contacto-fila--icono-izq { grid-template-columns: 180px 1fr; }
 @media (max-width: 560px) { .contacto-fila { grid-template-columns: 1fr 120px; } .contacto-fila--icono-izq { grid-template-columns: 120px 1fr; } }
+
+/* Tablas: el contenido de cada celda arriba (horarios) */
+.prosa td, .prosa th { vertical-align: top; text-align: left; }
+.prosa td:first-child { white-space: nowrap; padding-right: 10px; }
