@@ -192,3 +192,14 @@ a.bloque:hover { border-color: var(--oro); }
 .episodio img { width: 100%; border: 3px solid var(--lit-borde, var(--borde)); }
 @media (max-width: 760px) { .episodio { grid-template-columns: 1fr; } .episodio img { max-width: 360px; } }
 .envoltura--charla { max-width: 1000px; }
+
+/* ===== Portada (como en la web anterior) ===== */
+.inicio { text-align: center; padding: 40px 0 56px; }
+.inicio__titulo { font-size: clamp(2.4rem, 6vw, 3.6rem); margin: 0; }
+.inicio__lema { font-family: var(--serif); font-size: clamp(1.5rem, 3.5vw, 2rem); color: var(--azul); margin: .2em 0 1em; }
+.inicio__logo { width: min(380px, 80vw); height: auto; display: block; margin: 0 auto 48px; }
+.inicio__separador { display: flex; align-items: center; gap: 20px; max-width: 1000px; margin: 0 auto 20px; font-size: clamp(1.4rem, 3vw, 1.9rem); }
+.inicio__separador::before, .inicio__separador::after { content: ""; flex: 1; border-top: 1px solid var(--texto); }
+.inicio__redes { display: flex; justify-content: center; gap: 22px; margin: 0; }
+.inicio__redes a { display: inline-flex; border-radius: 50%; }
+.inicio__redes a:hover { transform: scale(1.08); }

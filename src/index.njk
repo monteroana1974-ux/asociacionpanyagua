@@ -3,58 +3,20 @@ layout: base.njk
 title: Inicio
 permalink: /
 ---
-{% from "tarjeta.njk" import tarjeta %}
-{% set hoy = collections.charlas[0] %}{% set au = hoy.data.audio | ivoox %}
-<section class="portada">
-  <div class="envoltura portada__rejilla">
-    <div>
-      <p class="antetitulo">Asociación de fieles católicos</p>
-      <h1>Asociación<br>Pan y Agua</h1>
-      <p class="portada__lema">Jesús es Señor</p>
-      <p class="portada__texto">Cada día, las Lecturas del Evangelio y la charla del Padre Jérémie Habyarimana. Retiros carismáticos, peregrinaciones y oración en el Nombre de Jesús.</p>
-      <p class="botones"><a class="boton" href="/charlas/">Escuchar las charlas</a> <a class="boton boton--borde" href="/quienes-somos/">Quiénes somos</a></p>
-    </div>
-    <img class="portada__logo" src="/img/logo-jesus-es-senor.png" alt="Jesús es Señor — Asociación Pan y Agua" width="420" height="420">
-  </div>
-</section>
-
-<section class="seccion">
+<section class="inicio">
   <div class="envoltura">
-    <p class="antetitulo">La charla de hoy</p>
-    <article class="destacada lit-{{ hoy.data.color or 'blanco' }}">
-      <img src="{{ hoy.data.image or '/img/logo-jesus-es-senor.png' }}" alt="" width="340" height="340">
-      <div>
-        <p class="charla__fecha">{{ hoy.date | fecha }}</p>
-        <h2><a href="{{ hoy.url }}">{{ hoy.data.title }}</a></h2>
-        {% if au.mp3 %}<audio controls preload="none" src="{{ au.mp3 }}"></audio>{% elif au.embed %}<iframe class="ivoox" src="{{ au.embed }}" title="Reproductor de iVoox" loading="lazy" height="200"></iframe>{% endif %}
-        <div class="prosa">{{ hoy.content | safe }}</div>
-      </div>
-    </article>
-  </div>
-</section>
+    <h1 class="inicio__titulo">Asociación<br>Pan y Agua</h1>
+    <p class="inicio__lema">Jesús es Señor</p>
+    <img class="inicio__logo" src="/img/logo-jesus-es-senor.png" alt="Jesús es Señor — Asociación Pan y Agua" width="420" height="420">
 
-<section class="seccion seccion--suave">
-  <div class="envoltura">
-    <div class="seccion__cabeza"><h2>Charlas recientes</h2><a href="/charlas/">Ver todas →</a></div>
-    <div class="lista-charlas lista-charlas--rejilla">
-      {% for c in collections.charlas | limit(7) %}{% if not loop.first %}{{ tarjeta(c) }}{% endif %}{% endfor %}
-    </div>
-  </div>
-</section>
-
-<section class="seccion">
-  <div class="envoltura tres">
-    <a class="bloque" href="/retiros-y-peregrinaciones/">
-      <h3>Retiros y peregrinaciones</h3>
-      <p>Retiros carismáticos en Madrid y peregrinaciones marianas. Consulta las próximas fechas.</p>
-    </a>
-    <a class="bloque" href="/ensenanzas/">
-      <h3>Enseñanzas del P. Jeremie</h3>
-      <p>Talleres de carismas, rosario de liberación y sanación, y otras enseñanzas en vídeo.</p>
-    </a>
-    <a class="bloque bloque--oro" href="/colaborar/">
-      <h3>Colabora con la misión</h3>
-      <p>Transferencia, Bizum (código 10120) o tarjeta. Gracias por sostener la evangelización.</p>
-    </a>
+    <h2 class="inicio__separador"><span>Síguenos en Redes Sociales</span></h2>
+    <p class="inicio__redes">
+      <a href="{{ site.facebook }}" aria-label="Facebook de la Asociación Pan y Agua">
+        <svg viewBox="0 0 24 24" width="40" height="40" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.4 19v-6.1h2.1l.3-2.4h-2.4V9c0-.7.2-1.2 1.2-1.2h1.3V5.7c-.2 0-1-.1-1.9-.1-1.9 0-3.2 1.2-3.2 3.3v1.8H8.7v2.4h2.1V19h2.6z" fill="#fff"/></svg>
+      </a>
+      <a href="{{ site.youtube }}" aria-label="YouTube del Padre Jeremie Habyarimana">
+        <svg viewBox="0 0 24 24" width="40" height="40" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#ff0000"/><rect x="5.5" y="7.5" width="13" height="9" rx="2.5" fill="#fff"/><path d="M10.6 9.9v4.2l3.6-2.1z" fill="#ff0000"/></svg>
+      </a>
+    </p>
   </div>
 </section>
