@@ -54,7 +54,6 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Título", name: title, widget: string }
-      - { label: "Fecha de publicación", name: date, widget: datetime, time_format: false, date_format: "DD/MM/YYYY", format: "YYYY-MM-DD" }
       - { label: "Resumen (aparece en la lista)", name: resumen, widget: string, required: false }
       - { label: "Imagen principal", name: image, widget: image, required: false }
       - { label: "Texto", name: body, widget: markdown }
