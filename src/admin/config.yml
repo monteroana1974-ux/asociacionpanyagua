@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: monteroana1974-ux/asociacionpanyagua
   branch: main
+  # El inicio de sesión con GitHub lo resuelve la función /auth del proyecto de Cloudflare Pages
+  base_url: https://asociacionpanyagua.pages.dev
   commit_messages:
     create: "Nueva {{collection}}: {{slug}}"
     update: "Cambio en {{collection}}: {{slug}}"
