@@ -10,8 +10,8 @@ backend:
     delete: "Borrado en {{collection}}: {{slug}}"
 
 locale: es
-site_url: https://asociacionpanyagua.org
-display_url: https://asociacionpanyagua.org
+site_url: https://www.asociacionpanyagua.org
+display_url: https://www.asociacionpanyagua.org
 logo_url: /img/logo-jesus-es-senor.png
 media_folder: src/img/subidas
 public_folder: /img/subidas
