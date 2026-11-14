@@ -15,7 +15,6 @@ permalink: /retiros-y-peregrinaciones/
   {% for a in collections.anuncios %}
   <a class="bloque bloque--anuncio" href="{{ a.url }}">
     {% if a.data.image %}<img src="{{ a.data.image }}" alt="" loading="lazy">{% endif %}
-    <p class="charla__fecha">{{ a.date | fecha }}</p>
     <h2>{{ a.data.title }}</h2>
     {% if a.data.resumen %}<p>{{ a.data.resumen }}</p>{% endif %}
     <span class="mas">Leer más →</span>
