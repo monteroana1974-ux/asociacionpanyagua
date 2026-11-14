@@ -76,9 +76,10 @@ export async function completarCharlas(dir = DIR) {
       continue;
     }
     const color = campo(fm, "color") || "verde";
+    const publicado = campo(fm, "publicado") === "false" ? "publicado: false\n" : "";
     const fecha = datos.date || (f.match(/^(\d{4}-\d{2}-\d{2})/) || [])[1] || "";
     const nuevo =
-      `---\ntitle: ${q(datos.title)}\n` +
+      `---\n${publicado}title: ${q(datos.title)}\n` +
       (fecha ? `date: ${fecha}\n` : "") +
       `color: ${color}\nfeed: ${q(feed)}\naudio: ${q(datos.audio)}\nimage: ${q(datos.image)}\ncompletado_desde: ${q(feed)}\n---\n` +
       `${datos.desc}\n`;

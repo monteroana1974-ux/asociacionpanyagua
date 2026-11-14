@@ -15,7 +15,7 @@ export default function (cfg) {
 
   // Charlas ordenadas de la más reciente a la más antigua
   cfg.addCollection("charlas", (api) =>
-    api.getFilteredByGlob("src/charlas/*.md").sort((a, b) => b.date - a.date || b.inputPath.localeCompare(a.inputPath))
+    api.getFilteredByGlob("src/charlas/*.md").filter((c) => c.data.publicado !== false).sort((a, b) => b.date - a.date || b.inputPath.localeCompare(a.inputPath))
   );
   cfg.addCollection("anuncios", (api) =>
     api.getFilteredByGlob("src/anuncios/*.md").filter((a) => a.data.publicado !== false).sort((a, b) => b.date - a.date)

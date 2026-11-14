@@ -1,1 +1,0 @@
-{ "layout": "charla.njk", "permalink": "/charlas/{{ page.fileSlug }}/" }

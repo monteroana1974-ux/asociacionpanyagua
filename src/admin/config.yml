@@ -25,8 +25,14 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-charla"
     sortable_fields: ["date", "title"]
-    summary: "{{fields.title | default('Charla nueva · se completa desde iVoox al publicar')}}"
+    summary: "{{fields.title | default('Charla nueva · se completa desde iVoox al publicar')}}{{fields.publicado | ternary('', '  ·  (SIN PUBLICAR)')}}"
     fields:
+      - label: "Publicada en la web"
+        name: publicado
+        widget: boolean
+        default: true
+        required: false
+        hint: "Apágalo para quitar la charla de la web sin borrarla. Queda guardada aquí y puedes volver a encenderlo cuando quieras."
       - label: "Enlace del feed de iVoox (.xml)"
         name: feed
         widget: string
