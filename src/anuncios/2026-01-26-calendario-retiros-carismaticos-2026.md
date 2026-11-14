@@ -2,7 +2,7 @@
 title: Calendario de los retiros carismáticos con la Asociación Pan y Agua
 date: 2026-01-26
 resumen: Retiros carismáticos de 2026 en la Iglesia San Juan de la Cruz (Carmelitas Descalzos), Madrid.
-image: /img/iglesia-san-juan-de-la-cruz.webp
+image: /img/iglesia-san-juan-de-la-cruz.jpg
 ---
 ## Calendario de los retiros carismáticos en 2026
 
