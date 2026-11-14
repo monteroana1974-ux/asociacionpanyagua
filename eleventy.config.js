@@ -1,6 +1,10 @@
+import { completarCharlas } from "./scripts/completar-ivoox.mjs";
 const MESES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
 
 export default function (cfg) {
+  // Antes de compilar, las charlas nuevas (solo con el feed de iVoox) se completan con los datos del feed
+  cfg.on("eleventy.before", async () => { await completarCharlas(); });
+
   cfg.addPassthroughCopy({ "src/img": "img" });
   cfg.addPassthroughCopy({ "src/css": "css" });
   cfg.addPassthroughCopy({ "src/js": "js" });

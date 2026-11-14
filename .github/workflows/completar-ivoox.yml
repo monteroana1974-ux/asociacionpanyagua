@@ -1,0 +1,38 @@
+# Cuando se publica una charla desde el panel (solo con el feed de iVoox y el color),
+# este proceso lee el feed y guarda en la charla el título, la fecha, la imagen,
+# el audio y la descripción, para que queden también en el panel.
+name: Completar charlas desde iVoox
+
+on:
+  push:
+    branches: [main]
+    paths: ["src/charlas/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: completar-ivoox
+  cancel-in-progress: false
+
+jobs:
+  completar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Leer los feeds de iVoox
+        run: node scripts/completar-ivoox.mjs
+      - name: Guardar los cambios
+        run: |
+          if [ -n "$(git status --porcelain src/charlas)" ]; then
+            git config user.name "Web Pan y Agua"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src/charlas
+            git commit -m "Charlas completadas desde iVoox"
+            git pull --rebase
+            git push
+          fi

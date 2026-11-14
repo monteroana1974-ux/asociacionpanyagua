@@ -20,31 +20,36 @@ collections:
   - name: charlas
     label: Charlas diarias
     label_singular: charla
-    description: "Para publicar la charla del día: pulsa «Crear charla», pega el enlace del episodio de iVoox, escribe el título y la descripción, y pulsa «Publicar»."
+    description: "Para publicar la charla del día: pulsa «Nueva charla», pega el enlace del feed de iVoox (el que termina en .xml), elige el color litúrgico y pulsa «Guardar». El título, la fecha, la imagen, la descripción y el audio se toman solos del feed de iVoox al publicar."
     folder: src/charlas
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-charla"
     sortable_fields: ["date", "title"]
-    summary: "{{date | date('DD/MM/YYYY')}} · {{title}}"
-    view_filters:
-      - { label: "Este año (2026)", field: date, pattern: "2026" }
+    summary: "{{fields.title | default('Charla nueva · se completa desde iVoox al publicar')}}"
     fields:
-      - { label: "Título", name: title, widget: string, hint: "Por ejemplo: 3-11-2026 JESÚS ES SEÑOR PARA GLORIA DE DIOS PADRE" }
-      - { label: "Fecha", name: date, widget: datetime, time_format: false, date_format: "DD/MM/YYYY", format: "YYYY-MM-DD" }
+      - label: "Enlace del feed de iVoox (.xml)"
+        name: feed
+        widget: string
+        required: false
+        pattern: ['^https://feeds\.ivoox\.com/.+\.xml', "Pega el enlace del feed de iVoox, el que empieza por https://feeds.ivoox.com/ y termina en .xml"]
+        hint: "Ejemplo: https://feeds.ivoox.com/feed_fg_f13254207_filtro_1.xml — obligatorio en las charlas nuevas."
       - label: "Color litúrgico"
         name: color
         widget: select
         required: true
-        hint: "El color del día: la charla se verá con ese color en la web."
         options:
           - { label: "Verde", value: verde }
           - { label: "Morado", value: morado }
           - { label: "Blanco", value: blanco }
           - { label: "Rojo", value: rojo }
           - { label: "Rosa", value: rosa }
-      - { label: "Enlace del audio en iVoox", name: audio, widget: string, hint: "Copia la dirección de la página del episodio en iVoox (la barra de direcciones del navegador) y pégala aquí. También vale el enlace .mp3." }
-      - { label: "Imagen", name: image, widget: image, required: false, hint: "Opcional. Si no pones imagen, se usará el logo de la Asociación." }
-      - { label: "Descripción", name: body, widget: markdown, buttons: [bold, italic, link], editor_components: [], hint: "Por ejemplo: Martes de la semana XXXI del Tiempo Ordinario. Año par. Las Lecturas del Evangelio y Las Charlas del Padre Jeremie Habyarimana." }
+      # Estos datos los rellena la web desde el feed de iVoox; no se muestran en el panel
+      - { name: title, widget: hidden, required: false }
+      - { name: date, widget: hidden, required: false }
+      - { name: audio, widget: hidden, required: false }
+      - { name: image, widget: hidden, required: false }
+      - { name: completado_desde, widget: hidden, required: false }
+      - { name: body, widget: hidden, required: false }
 
   - name: anuncios
     label: Retiros y peregrinaciones
