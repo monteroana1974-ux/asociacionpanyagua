@@ -27,7 +27,7 @@
     <nav id="menu" class="menu" aria-label="Principal">
       {% set enlaces = [["/", "Inicio"], ["/quienes-somos/", "Quiénes somos"], ["/charlas/", "Charlas del P. Jeremie"], ["/ensenanzas/", "Enseñanzas"], ["/retiros-y-peregrinaciones/", "Retiros y peregrinaciones"], ["/colaborar/", "Colaborar"]] %}
       {% for e in enlaces %}
-        <a href="{{ e[0] }}"{% if page.url == e[0] or (e[0] != "/" and page.url.startsWith(e[0])) %} aria-current="page"{% endif %}>{{ e[1] }}</a>
+        <a href="{{ e[0] }}"{% if page.url == e[0] or (e[0] != "/" and page.url and page.url.startsWith(e[0])) %} aria-current="page"{% endif %}>{{ e[1] }}</a>
       {% endfor %}
     </nav>
   </div>

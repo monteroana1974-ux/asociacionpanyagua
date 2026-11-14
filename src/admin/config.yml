@@ -57,7 +57,14 @@ collections:
     folder: src/anuncios
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}}{{fields.publicado | ternary('', '  ·  (SIN PUBLICAR)')}}"
     fields:
+      - label: "Publicado en la web"
+        name: publicado
+        widget: boolean
+        default: true
+        required: false
+        hint: "Apágalo para quitar el anuncio de la web sin borrarlo. Queda guardado aquí y puedes volver a encenderlo cuando quieras."
       - { label: "1. Título", name: title, widget: string }
       - { label: "2. Imagen principal", name: image, widget: image, required: false }
       - label: "3. Texto resumen"

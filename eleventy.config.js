@@ -18,7 +18,7 @@ export default function (cfg) {
     api.getFilteredByGlob("src/charlas/*.md").sort((a, b) => b.date - a.date || b.inputPath.localeCompare(a.inputPath))
   );
   cfg.addCollection("anuncios", (api) =>
-    api.getFilteredByGlob("src/anuncios/*.md").sort((a, b) => b.date - a.date)
+    api.getFilteredByGlob("src/anuncios/*.md").filter((a) => a.data.publicado !== false).sort((a, b) => b.date - a.date)
   );
 
   // Charlas agrupadas por mes: [{key:"2026-11", label:"Noviembre 2026", items:[...]}]

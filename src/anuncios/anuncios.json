@@ -1,1 +1,0 @@
-{ "layout": "anuncio.njk", "permalink": "/retiros-y-peregrinaciones/{{ page.fileSlug }}/" }
