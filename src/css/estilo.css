@@ -203,3 +203,14 @@ a.bloque:hover { border-color: var(--oro); }
 .inicio__redes { display: flex; justify-content: center; gap: 22px; margin: 0; }
 .inicio__redes a { display: inline-flex; border-radius: 50%; }
 .inicio__redes a:hover { transform: scale(1.08); }
+
+/* Página de cada charla: todo el fondo del color litúrgico */
+.cabecera-lit { margin-bottom: 0; border-bottom: 0; }
+.cuerpo-lit { background: var(--lit, var(--fondo)); color: var(--lit-texto, var(--texto)); padding: 10px 0 30px; }
+.cuerpo-lit .prosa, .cuerpo-lit .pequeno { color: inherit; }
+.cuerpo-lit a { color: inherit; }
+.cuerpo-lit .vecinas { border-top-color: currentColor; margin-bottom: 10px; }
+.cuerpo-lit .episodio img { border-color: rgba(255,255,255,.85); }
+.lit-blanco.cuerpo-lit .episodio img { border-color: var(--lit-borde); }
+.lit-blanco.cuerpo-lit { border-bottom: 1px solid var(--borde); }
+main:has(.cuerpo-lit) + .pie { margin-top: 0; }

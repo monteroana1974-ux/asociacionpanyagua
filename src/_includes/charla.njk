@@ -11,7 +11,8 @@ layout: base.njk
   </div>
 </section>
 {% set au = audio | ivoox %}
-<div class="envoltura envoltura--charla lit-{{ color or 'blanco' }}">
+<section class="cuerpo-lit lit-{{ color or 'blanco' }}">
+<div class="envoltura envoltura--charla">
   <div class="episodio">
     <img src="{{ image or '/img/logo-jesus-es-senor.png' }}" alt="" width="340" height="340">
     <div>
@@ -26,3 +27,4 @@ layout: base.njk
     {% if idx > 0 %}{% set sig = todas[idx - 1] %}<a href="{{ sig.url }}">{{ sig.date | fecha }} →</a>{% else %}<span></span>{% endif %}
   </nav>
 </div>
+</section>
