@@ -12,6 +12,8 @@ export default function (cfg) {
   cfg.addPassthroughCopy({ "src/js": "js" });
   cfg.addPassthroughCopy({ "src/admin": "admin" });
   cfg.addPassthroughCopy({ "src/_redirects": "_redirects" });
+  cfg.addPassthroughCopy({ "src/CNAME": "CNAME" });
+  cfg.addPassthroughCopy({ "src/.nojekyll": ".nojekyll" });
 
   // Charlas ordenadas de la más reciente a la más antigua
   cfg.addCollection("charlas", (api) =>
