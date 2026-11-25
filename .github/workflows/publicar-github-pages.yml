@@ -44,7 +44,14 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.despliegue.outputs.page_url }}
+      url: ${{ steps.intento1.outputs.page_url || steps.intento2.outputs.page_url }}
     steps:
-      - id: despliegue
+      # Si GitHub da un error puntual, espera un minuto y lo intenta otra vez.
+      - id: intento1
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      - if: steps.intento1.outcome == 'failure'
+        run: sleep 60
+      - id: intento2
+        if: steps.intento1.outcome == 'failure'
         uses: actions/deploy-pages@v4
